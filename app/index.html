@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="mpsApp">
+<head>
     <meta charset="UTF-8">
     <title>My photo site</title>
 <!-- build:css styles/main.css -->
     <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="../bower_components/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet">
     <link href="../bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="styles/custom.css" rel="stylesheet">
 <!-- endbuild -->
 </head>
 <body>
@@ -62,9 +64,27 @@
         </div>
     </div>
 </nav>
+
+<div class="container padded">
+    <div class="row row-content" ng-controller="VideoController">
+        <div class="col-xs-12">
+            <ul class="list-group">
+                <li ng-repeat="item in videos" class="list-group-item">
+                    <span class="badge">{{item.files.length}}</span>
+                    {{item.name}}
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
 <!-- build:js scripts/main.js -->
 <script src="../bower_components/jquery/dist/jquery.min.js"></script>
 <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="../bower_components/angular/angular.min.js"></script>
+<script src="scripts/app.js"></script>
+<script src="scripts/services.js"></script>
+<script src="scripts/controllers.js"></script>
 <!-- endbuild -->
 </body>
 </html>
