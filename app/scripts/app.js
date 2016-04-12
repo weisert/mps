@@ -1,2 +1,2 @@
 
-var app = angular.module('mpsApp', []);
+var app = angular.module('mpsApp', ['ngResource']);

@@ -49,9 +49,9 @@ gulp.task('imagemin', function() {
 });
 
 gulp.task('copyfonts', ['clean'], function() {
-  gulp.src('./bower_components/font-awesome/fonts/**/*.{ttf,woff,eof,svg}*')
+  gulp.src('./bower_components/font-awesome/fonts/**/*.{ttf,woff,woff2,eof,svg}*')
     .pipe(gulp.dest('./dist/fonts'));
-  gulp.src('./bower_components/bootstrap/dist/fonts/**/*.{ttf,woff,eof,svg}*')
+  gulp.src('./bower_components/bootstrap/dist/fonts/**/*.{ttf,woff,woff2,eof,svg}*')
     .pipe(gulp.dest('./dist/fonts'));
 });
 
@@ -79,4 +79,8 @@ gulp.task('browser-sync', ['default'], function () {
   });
         // Watch any files in dist/, reload on change
   gulp.watch(['dist/**']).on('change', browserSync.reload);
+});
+
+gulp.task('deploy-local', ['usemin', 'imagemin','copyfonts'], function(){
+    gulp.src('./dist/**/*').pipe(gulp.dest('./json_server/public'));
 });

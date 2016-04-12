@@ -68,7 +68,7 @@
 <div class="container padded">
     <div class="row row-content" ng-controller="VideoController">
         <div class="col-xs-8 col-xs-offset-2">
-            <div class="panel panel-default" ng-repeat="item in videos">
+            <div class="panel panel-default" ng-repeat="item in videoList">
                 <div class="panel-heading highlight" ng-click="showFiles($event, item)">
                     <h3 class="panel-title">{{item.name}}<span class="badge pull-right">{{item.files.length}}</span></h3>
                 </div>
@@ -88,6 +88,7 @@
 <script src="../bower_components/jquery/dist/jquery.min.js"></script>
 <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="../bower_components/angular/angular.min.js"></script>
+<script src="../bower_components/angular-resource/angular-resource.min.js"></script>
 <script src="scripts/app.js"></script>
 <script src="scripts/services.js"></script>
 <script src="scripts/controllers.js"></script>
