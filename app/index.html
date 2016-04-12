@@ -67,13 +67,19 @@
 
 <div class="container padded">
     <div class="row row-content" ng-controller="VideoController">
-        <div class="col-xs-12">
-            <ul class="list-group">
-                <li ng-repeat="item in videos" class="list-group-item">
-                    <span class="badge">{{item.files.length}}</span>
-                    {{item.name}}
-                </li>
-            </ul>
+        <div class="col-xs-8 col-xs-offset-2">
+            <div class="panel panel-default" ng-repeat="item in videos">
+                <div class="panel-heading highlight" ng-click="showFiles($event, item)">
+                    <h3 class="panel-title">{{item.name}}<span class="badge pull-right">{{item.files.length}}</span></h3>
+                </div>
+                <div class="panel-body initiallyHidden">
+                    <ul>
+                        <li ng-repeat="file in item.files">
+                            <a  href="{{file}}">{{file}}</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
 </div>
